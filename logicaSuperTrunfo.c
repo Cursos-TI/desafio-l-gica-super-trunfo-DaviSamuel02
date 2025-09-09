@@ -4,39 +4,40 @@ int main(){
 
     // Variáveis da carta 1.
 
-    char Estado[70], Nome_Cidade[70];
-    int Populacao;
-    float pib, Pib_per_capita;
+    char Pais[70];
+    int Populacao, Pontos_turisticos;
+    float pib, Pib_per_capita, area, Densidade_demografica;
     
     // Variáveis da carta 2.
 
-    char Estado2[70], Nome_Cidade2[70];
-    int Populacao2;
-    float pib2, Pib_per_capita2;
+    char Pais2;
+    int Populacao2, Pontos_turisticos2;
+    float pib2, Pib_per_capita2, area2, Densidade_demografica2;
 
-    // Primeiramente o programa irá mostrar sua principal função de uso: Comparar o "PIB per Capita" entre duas cidades.
-
-    printf("*Comparador de PIB per Capita*\n");
     
     // O usuário irá digitar os dados da primeira carta.
     
     printf("Por favor, digite os dados da carta 1 a seguir:\n"); // Notifica ao usuário que os dados que ele irá digitar são da carta 1.
-    printf("\nDigite o estado: \n"); // Usuário digita o nome do estado.
-    scanf("%s", &Estado);
+    printf("\nDigite o estado: \n"); // Usuário digita o nome do país.
+    scanf("%s", &Pais);
 
-    printf("Digite o nome da cidade: \n"); // Usuário digita o nome do cidade.
-    scanf("%s", &Nome_Cidade);
-
-    printf("Digite a população: \n"); // Usuário digita a quantidade de pessoas que vivem na cidade.
+    printf("Digite a população: \n"); // Usuário digita a quantidade de pessoas que vivem no país.
     scanf("%d", &Populacao);
 
+    printf("Digite o número de pontos turísticos: \n"); // Usuário digita a quantidade de pontos turísticos que há no país.
+    scanf("%d", &Pontos_turisticos);
 
-    printf("Digite o PIB (em reais) da cidade: \n"); // Usuário digita o PIB da cidade.
+    printf("Digite a area (km²): \n"); // Usuário digita o tamanho do país.
+    scanf("%d", &area);
+
+
+    printf("Digite o PIB (em reais) da cidade: \n"); // Usuário digita o PIB do país.
     scanf("%f", &pib);
 
-    // Abaixo está o cálculo do PIB per Capita utilizando duas variáveis ("pib" e "Populacao") da carta 1.
+    // Abaixo está o cálculo do "PIB per Capita" e da "Densidade Demográfica" da carta 1.
     
     Pib_per_capita = (float) pib/Populacao;
+    Densidade_demografica = (float) Populacao/area;
 
 
     // O usuário irá digitar os dados da segunda carta.
@@ -54,24 +55,11 @@ int main(){
     printf("Digite o PIB (em reais) da cidade: \n");
     scanf("%f", &pib2);
 
-    // Abaixo está o cálculo do PIB per Capita utilizando duas variáveis ("pib2" e "Populacao2") da carta 2.
+    // Abaixo está o cálculo do "PIB per Capita" e da "Densidade Demográfica" da carta 2.
    
     Pib_per_capita2 = (float) pib2/Populacao2;
+    Densidade_demografica2 = (float) Populacao2/area2;
 
-    // Abaixo o usuário verá o "PIB per Capita" de cada carta e logo após, o resultado do vencedor.
-        printf("\n ---- Comparação do PIB per Capita entre duas cidades ----\n");
-        printf("\n%s (%s) - PIB per Capita: R$ %.2f\n", Nome_Cidade, Estado, Pib_per_capita);
-        printf("%s (%s) - PIB per Capita: R$ %.2f\n", Nome_Cidade2, Estado2, Pib_per_capita2);
-        
-    // A lógica a ser utilizada para determinar qual cidade (carta) será o vencedor da comparação.
-    
-    if (Pib_per_capita > Pib_per_capita2)
-    {
-        printf("\n* Vencedor: %s (%s) com um PIB per Capita de R$ %.2f\n", Nome_Cidade, Estado, Pib_per_capita);
-    }
-        else{
-        printf("\n* Vencedor: %s (%s) com um PIB per Capita de R$ %.2f\n", Nome_Cidade2, Estado2, Pib_per_capita2);
-        }
 
     
     return 0;
